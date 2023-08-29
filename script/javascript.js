@@ -37,10 +37,7 @@ function BotVSPlayer(bot, player) {
 
 function PlayingRounds() {
   while (playerWonRounds < roundsToWin && botWonRounds < roundsToWin) {
-    btnRock.onclick()
-    const playerChoice;
-
-
+    let playerChoice;
     let botChoiceVar = BotChoice();
     console.log(
       `${BotVSPlayer(
