@@ -15,18 +15,29 @@
         <li>Rock Paper Scissors Game!</li>
       </ul>
     </nav>
+    <div class="round-Counter">
+      Round: <span id="roundCounter"></span>
+    </div>
   </header>
-
+ 
   <main>
     <div class="wrapper">
       <div class="buttons">
         <button id="rock">🪨</button>
         <button id="paper">📜</button>
         <button id="scissors">✂️</button>
+        <button id="reset">RE</button>
       </div>
       <div class="textbox-container">
-        <textarea id="text-area" cols="50" rows="10" readonly></textarea>
+        <div class="textarea-wrapper">
+          <textarea id="text-area" cols="50" rows="10" readonly></textarea>
+        </div>
+        <div class="win-Counters">
+          <p>🫵 Wins: <span id="player-Wins">0</span></p>
+          <p>🤖 Wins: <span id="bot-Wins">0</span></p>
+        </div>
       </div>
+      
     </div>
   </main>
   

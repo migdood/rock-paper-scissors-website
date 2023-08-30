@@ -1,40 +1,50 @@
-function botChoiceF(){
-  const choices = ['rock', 'paper', 'scissors'];
-  return choices[Math.floor(Math.random() * choices.length)];
-}
-
-
-const playerWonRounds = 0;
-const botWonRounds = 0;
+let playerWonRounds = 0;
+let botWonRounds = 0;
 const roundsToWin = 5;
 
-const rockButton = document.getElementById('rock');
-const paperButton = document.getElementById('paper');
-const scissorsButton = document.getElementById('scissors');
-const textArea = document.getElementById('text-area');
+const roundCounter = document.getElementById("roundCounter").textContent = 0;
+const rockButton = document.getElementById("rock");
+const paperButton = document.getElementById("paper");
+const scissorsButton = document.getElementById("scissors");
+const resetButton = document.getElementById("reset");
+const textArea = document.getElementById("text-area");
 
-let playerChoice = 'null';
-rockButton.addEventListener('click',()=> {playerChoice = 'rock'; textArea.addvalue = 'Player: rock'});
-paperButton.addEventListener('click',()=> playerChoice = 'paper');
-scissorsButton.addEventListener('click',()=> playerChoice = 'scissors');
+let playerChoice = "null";
+rockButton.addEventListener("click", () => whoWon("rock"));
+paperButton.addEventListener("click", () =>  whoWon("paper"));
+scissorsButton.addEventListener("click", () =>  whoWon("scissors"));
+resetButton.addEventListener("click", () => textArea.value = "");
 
-
-function whoWon(bot, player){
-  if(bot === player){
-    return 'Draw';
+function whoWon(player) {
+  function botChoiceF() 
+  {
+    const choices = ["rock", "paper", "scissors"];
+    return choices[Math.floor(Math.random() * choices.length)];
   }
-  else if((bot == 'rock' && player == 'scissors') || (bot == 'paper' && player == 'rock') || (bot == 'scissors' && player == 'paper')){
+  const bot = botChoiceF();
+  let result;
+
+  if (bot === player) {
+    result = 'Draw';
+  } else if (
+    (bot == "rock" && player == "scissors") ||
+    (bot == "paper" && player == "rock") ||
+    (bot == "scissors" && player == "paper")
+  ) {
     botWonRounds++;
-    return 'botwon';
-  }
-  else{
+    result = "Bot Won";
+  } else {
     playerWonRounds++;
-    return 'player won';
+    result = "Player Won.";
   }
+
+  let printResult = (textArea.value += `🤖: ${bot}\n🫵: ${player}\n${result}\n`);
+  textArea.value = printResult;
+  textArea.scrollTop = textArea.scrollHeight;
 }
 
-function playingRounds(){
-  while(playerWonRounds < roundsToWin && botWonRounds < roundsToWin){
+function playingRounds() {
+  while (playerWonRounds < roundsToWin && botWonRounds < roundsToWin) {
     const botChoice = botChoiceF();
     BotVSPlayer(botChoice, playerChoice);
   }

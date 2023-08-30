@@ -7,11 +7,6 @@ let playerWonRounds = 0;
 let botWonRounds = 0;
 let roundsToWin = 5;
 
-const btnRock = document.getElementById('rock');
-const btnPaper = document.getElementById('paper');
-const btnScissors = document.getElementById('scissors');
-
-
 function BotVSPlayer(bot, player) {
   let result;
   if (
