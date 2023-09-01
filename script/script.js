@@ -1,23 +1,36 @@
 let playerWonRounds = 0;
 let botWonRounds = 0;
+let currentRound = 0;
 const roundsToWin = 5;
 
-const roundCounter = document.getElementById("roundCounter").textContent = 0;
 const rockButton = document.getElementById("rock");
 const paperButton = document.getElementById("paper");
 const scissorsButton = document.getElementById("scissors");
 const resetButton = document.getElementById("reset");
 const textArea = document.getElementById("text-area");
+const roundCounter = document.getElementById("roundCounter");
+const playerWins = document.getElementById("player-Wins");
+const botWins = document.getElementById("bot-Wins");
 
 let playerChoice = "null";
 rockButton.addEventListener("click", () => whoWon("rock"));
-paperButton.addEventListener("click", () =>  whoWon("paper"));
-scissorsButton.addEventListener("click", () =>  whoWon("scissors"));
-resetButton.addEventListener("click", () => textArea.value = "");
+paperButton.addEventListener("click", () => whoWon("paper"));
+scissorsButton.addEventListener("click", () => whoWon("scissors"));
+resetButton.addEventListener("click", () => {
+  textArea.value = "";
+  currentRound = 0;
+  playerWonRounds = 0;
+  botWonRounds = 0;
+  roundCounter.textContent = 0;
+  playerWins.textContent = 0;
+  botWins.textContent = 0;
+});
+(playerWins.textContent = 0),
+  (botWins.textContent = 0),
+  (roundCounter.textContent = 0);
 
 function whoWon(player) {
-  function botChoiceF() 
-  {
+  function botChoiceF() {
     const choices = ["rock", "paper", "scissors"];
     return choices[Math.floor(Math.random() * choices.length)];
   }
@@ -25,16 +38,26 @@ function whoWon(player) {
   let result;
 
   if (bot === player) {
-    result = 'Draw';
+    currentRound++;
+    roundCounter.textContent = currentRound;
+    result = "Draw";
   } else if (
     (bot == "rock" && player == "scissors") ||
     (bot == "paper" && player == "rock") ||
     (bot == "scissors" && player == "paper")
   ) {
     botWonRounds++;
+    currentRound++;
+    roundCounter.textContent = currentRound;
+    console.log("bot: " + botWonRounds);
+    botWins.textContent = botWonRounds;
     result = "Bot Won";
   } else {
     playerWonRounds++;
+    currentRound++;
+    roundCounter.textContent = currentRound;
+    console.log("player: " + playerWonRounds);
+    playerWins.textContent = playerWonRounds;
     result = "Player Won.";
   }
 
