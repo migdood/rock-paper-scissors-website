@@ -3,20 +3,26 @@ let botWonRounds = 0;
 let currentRound = 0;
 const roundsToWin = 5;
 
+const overlay = document.getElementById("overlay");
+const playButton = document.getElementById("play-button");
+
+const winnerOverlay = document.getElementById("overlay-winner");
+const winnerText = document.getElementById("winner-text");
+const winnerButton = document.getElementById("play-again");
+
 const rockButton = document.getElementById("rock");
 const paperButton = document.getElementById("paper");
 const scissorsButton = document.getElementById("scissors");
-const resetButton = document.getElementById("reset");
+
 const textArea = document.getElementById("text-area");
 const roundCounter = document.getElementById("roundCounter");
 const playerWins = document.getElementById("player-Wins");
 const botWins = document.getElementById("bot-Wins");
 
-let playerChoice = "null";
-rockButton.addEventListener("click", () => whoWon("rock"));
-paperButton.addEventListener("click", () => whoWon("paper"));
-scissorsButton.addEventListener("click", () => whoWon("scissors"));
-resetButton.addEventListener("click", () => {
+rockButton.addEventListener("click", () => whoWon("🪨"));
+paperButton.addEventListener("click", () => whoWon("📜"));
+scissorsButton.addEventListener("click", () => whoWon("✂️"));
+function resetButton(){
   textArea.value = "";
   currentRound = 0;
   playerWonRounds = 0;
@@ -24,14 +30,15 @@ resetButton.addEventListener("click", () => {
   roundCounter.textContent = 0;
   playerWins.textContent = 0;
   botWins.textContent = 0;
-});
-(playerWins.textContent = 0),
-  (botWins.textContent = 0),
-  (roundCounter.textContent = 0);
+};
+
+playerWins.textContent = 0;
+botWins.textContent = 0;
+roundCounter.textContent = 0;
 
 function whoWon(player) {
   function botChoiceF() {
-    const choices = ["rock", "paper", "scissors"];
+    const choices = ["🪨", "📜", "✂️"];
     return choices[Math.floor(Math.random() * choices.length)];
   }
   const bot = botChoiceF();
@@ -42,9 +49,9 @@ function whoWon(player) {
     roundCounter.textContent = currentRound;
     result = "Draw";
   } else if (
-    (bot == "rock" && player == "scissors") ||
-    (bot == "paper" && player == "rock") ||
-    (bot == "scissors" && player == "paper")
+    (bot == "🪨" && player == "✂️") ||
+    (bot == "📜" && player == "🪨") ||
+    (bot == "✂️" && player == "📜")
   ) {
     botWonRounds++;
     currentRound++;
@@ -61,20 +68,24 @@ function whoWon(player) {
     result = "Player Won.";
   }
 
-  let printResult = (textArea.value += `🤖: ${bot}\n🫵: ${player}\n${result}\n`);
-  textArea.value = printResult;
+  textArea.value += `Bot: ${bot}\nPlayer: ${player}\n${result}\n----------\n`;
   textArea.scrollTop = textArea.scrollHeight;
+
+  if (playerWonRounds == roundsToWin) {
+    winnerOverlay.style.display = "flex";
+    winnerText.innerHTML = "You Won 5 Rounds!!!<br>Good Job."
+    winnerButton.addEventListener('click', () => {resetButton(); winnerOverlay.style.display = "none";})
+  } 
+  else if (botWonRounds === roundsToWin) {
+    winnerOverlay.style.display = "flex";
+    winnerText.innerHTML = "Bot Won 5 Rounds!!!<br>Get DUNKED ON"
+    winnerButton.addEventListener('click', () => {resetButton(); winnerOverlay.style.display = "none";})}
 }
 
-function playingRounds() {
-  while (playerWonRounds < roundsToWin && botWonRounds < roundsToWin) {
-    const botChoice = botChoiceF();
-    BotVSPlayer(botChoice, playerChoice);
-  }
-
-  if (playerWonRounds >= roundsToWin) {
-    textArea.value("Player wins the game!");
-  } else {
-    console.log("Bot wins the game!");
-  }
+function showOverlay() {
+  overlay.style.display = "flex";
 }
+playButton.addEventListener("click", function () {
+  overlay.style.display = "none";
+});
+window.addEventListener("load", showOverlay);
