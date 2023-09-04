@@ -1,48 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="script/script.js" defer></script>
-  <title>Rock, Paper, Scissors</title>
-</head>
-<body>
-  <header>
-    <nav>
-      <ul>
-        <li>Rock Paper Scissors Game!</li>
-      </ul>
-    </nav>
-    <div class="round-Counter">
-      Round: <span id="roundCounter"></span>
-    </div>
-  </header>
- 
-  <main>
-    <div class="wrapper">
-      <div class="buttons">
-        <button id="rock">🪨</button>
-        <button id="paper">📜</button>
-        <button id="scissors">✂️</button>
-        <button id="reset">RE</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="script/script.js" defer></script>
+    <title>Rock, Paper, Scissors</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>Rock Paper Scissors Game!</li>
+        </ul>
+      </nav>
+      <div class="round-Counter">Round: <span id="roundCounter"></span></div>
+    </header>
+
+    <div id="overlay">
+      <div id="overlay-content">
+        <h1>Play Rock, Paper, Scissors</h1>
+        <button id="play-button">Play</button>
       </div>
-      <div class="textbox-container">
-        <div class="textarea-wrapper">
-          <textarea id="text-area" cols="50" rows="10" readonly></textarea>
+    </div>
+
+    <div id="overlay-winner">
+      <div id="winner-content">
+        <h1 id="winner-text"></h1>
+        <button id="play-again">Play Again?</button>
+      </div>
+    </div>
+
+    <main>
+      <div class="wrapper">
+        <div class="buttons">
+          <button id="rock">🪨</button>
+          <button id="paper">📜</button>
+          <button id="scissors">✂️</button>
         </div>
-        <div class="win-Counters">
-          <p>🫵 Wins: <span id="player-Wins"></span></p>
-          <p>🤖 Wins: <span id="bot-Wins"></span></p>
+
+        <div class="textbox-container">
+
+          <div class="textarea-wrapper">
+            <textarea id="text-area" cols="50" rows="10" readonly></textarea>
+          </div>
+
+          <div class="win-Counters">
+            <p>🫵 Wins: <span id="player-Wins"></span></p>
+            <p>🤖 Wins: <span id="bot-Wins"></span></p>
+          </div>
+          
         </div>
       </div>
-      
-    </div>
-  </main>
-  
-</body>
-<footer>
-  Copyright© Almigdad 2023
-</footer>
+    </main>
+  </body>
+  <footer>Copyright© Almigdad 2023</footer>
 </html>
