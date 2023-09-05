@@ -22,7 +22,7 @@ const botWins = document.getElementById("bot-Wins");
 rockButton.addEventListener("click", () => whoWon("🪨"));
 paperButton.addEventListener("click", () => whoWon("📜"));
 scissorsButton.addEventListener("click", () => whoWon("✂️"));
-function resetButton(){
+function resetButton() {
   textArea.value = "";
   currentRound = 0;
   playerWonRounds = 0;
@@ -30,7 +30,7 @@ function resetButton(){
   roundCounter.textContent = 0;
   playerWins.textContent = 0;
   botWins.textContent = 0;
-};
+}
 
 playerWins.textContent = 0;
 botWins.textContent = 0;
@@ -73,13 +73,19 @@ function whoWon(player) {
 
   if (playerWonRounds == roundsToWin) {
     winnerOverlay.style.display = "flex";
-    winnerText.innerHTML = "You Won 5 Rounds!!!<br>Good Job."
-    winnerButton.addEventListener('click', () => {resetButton(); winnerOverlay.style.display = "none";})
-  } 
-  else if (botWonRounds === roundsToWin) {
+    winnerText.innerHTML = "You Won 5 Rounds!!!<br>Good Job.";
+    winnerButton.addEventListener("click", () => {
+      resetButton();
+      winnerOverlay.style.display = "none";
+    });
+  } else if (botWonRounds === roundsToWin) {
     winnerOverlay.style.display = "flex";
-    winnerText.innerHTML = "Bot Won 5 Rounds!!!<br>Get DUNKED ON"
-    winnerButton.addEventListener('click', () => {resetButton(); winnerOverlay.style.display = "none";})}
+    winnerText.innerHTML = "Bot Won 5 Rounds!!!<br>Get DUNKED ON";
+    winnerButton.addEventListener("click", () => {
+      resetButton();
+      winnerOverlay.style.display = "none";
+    });
+  }
 }
 
 function showOverlay() {
@@ -89,3 +95,14 @@ playButton.addEventListener("click", function () {
   overlay.style.display = "none";
 });
 window.addEventListener("load", showOverlay);
+
+
+const darkButton = document.getElementById("dark-theme-button");
+const darkWrapper = document.querySelectorAll(".wrapper");
+
+darkButton.addEventListener("click", () => {
+  document.body.classList.toggle("dark-theme");
+  darkWrapper.forEach((element) => {
+    element.classList.toggle("dark-theme");
+  });
+});

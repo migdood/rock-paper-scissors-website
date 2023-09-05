@@ -1,6 +1,7 @@
-*{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+
 header {
   display: flex;
   flex-direction: column;
@@ -11,7 +12,23 @@ nav {
   margin: 100px 0;
   font-size: 40px;
 }
-header .round-Counter{
+#dark-theme-button {
+  margin-top: 20px;
+  color: white;
+  border: 0;
+  height: 90px;
+  width: 150px;
+  font-size: 50px;
+  background-color: #464578;
+  border-radius: 16px;
+  transition: 50ms ease;
+}
+#dark-theme-button:hover {
+  transform: translateY(-10px);
+  box-shadow: 5px 10px 5px rgba(70, 69, 120, 0.6);
+  cursor: pointer;
+}
+header .round-Counter {
   font-weight: 400;
   font-size: 40px;
   margin-bottom: 50px;
@@ -52,12 +69,12 @@ main .textarea-wrapper {
   display: flex;
   justify-content: center;
 }
-main .win-Counters{
+main .win-Counters {
   font-size: 25px;
   line-height: 45px;
   margin-left: 25px;
 }
-main .textbox-container{
+main .textbox-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -160,4 +177,23 @@ footer {
   height: 2.5rem;
   background-color: #ebdbe3;
   padding: 20px 0;
+}
+
+/* Dark Theme Styles */
+.dark-theme {
+  background-color: #464578;
+  color: #f5f9f7;
+}
+.dark-theme #dark-theme-button{
+  background-color: #f5f9f7;
+  color: black;
+}
+.dark-theme #rock {
+  background-color: #f5f9f7;
+}
+.dark-theme #paper {
+  background-color: #f5f9f7;
+}
+.dark-theme #scissors {
+  background-color: #f5f9f7;
 }
