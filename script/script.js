@@ -72,18 +72,18 @@ function whoWon(player) {
   textArea.scrollTop = textArea.scrollHeight;
 
   if (playerWonRounds == roundsToWin) {
-    winnerOverlay.style.display = "flex";
+    winnerOverlay.style.transform = "translateY(0%)";
     winnerText.innerHTML = "You Won 5 Rounds!!!<br>Good Job.";
     winnerButton.addEventListener("click", () => {
       resetButton();
-      winnerOverlay.style.display = "none";
+      winnerOverlay.style.transform = "translateY(-100%)";
     });
   } else if (botWonRounds === roundsToWin) {
-    winnerOverlay.style.display = "flex";
+    winnerOverlay.style.transform = "translateY(0%)";
     winnerText.innerHTML = "Bot Won 5 Rounds!!!<br>Get DUNKED ON";
     winnerButton.addEventListener("click", () => {
       resetButton();
-      winnerOverlay.style.display = "none";
+      winnerOverlay.style.transform = "translateY(-100%)";
     });
   }
 }
@@ -92,14 +92,16 @@ function showOverlay() {
   overlay.style.display = "flex";
 }
 playButton.addEventListener("click", function () {
-  overlay.style.display = "none";
+  overlay.style.transform = "translateY(-100%)";
+  //overlay.style.display = "none";
 });
 window.addEventListener("load", showOverlay);
 
-
+// Dark Theme
 const darkButton = document.getElementById("dark-theme-button");
 const darkWrapper = document.querySelectorAll(".wrapper");
 
+// Dark button
 darkButton.addEventListener("click", () => {
   document.body.classList.toggle("dark-theme");
   darkWrapper.forEach((element) => {
