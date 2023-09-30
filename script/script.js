@@ -3,10 +3,12 @@ let botWonRounds = 0;
 let currentRound = 0;
 const roundsToWin = 5;
 
+const nav = document.getElementById("nav");
 const overlay = document.getElementById("overlay");
 const playButton = document.getElementById("play-button");
 
 const winnerOverlay = document.getElementById("overlay-winner");
+const winnerImage = document.getElementById("winner-image");
 const winnerText = document.getElementById("winner-text");
 const winnerButton = document.getElementById("play-again");
 
@@ -20,8 +22,20 @@ const playerWins = document.getElementById("player-Wins");
 const botWins = document.getElementById("bot-Wins");
 
 rockButton.addEventListener("click", () => whoWon("🪨"));
+rockButton.addEventListener("mousedown", () => rockButton.classList.add("clicked"));
+rockButton.addEventListener("mouseup", () => rockButton.classList.remove("clicked"));
+rockButton.addEventListener("mouseleave", () => rockButton.classList.remove("clicked"));
+
 paperButton.addEventListener("click", () => whoWon("📜"));
+paperButton.addEventListener("mousedown", () => paperButton.classList.add("clicked"));
+paperButton.addEventListener("mouseup", () => paperButton.classList.remove("clicked"));
+paperButton.addEventListener("mouseleave", () => paperButton.classList.remove("clicked"));
+
 scissorsButton.addEventListener("click", () => whoWon("✂️"));
+scissorsButton.addEventListener("mousedown", () => scissorsButton.classList.add("clicked"));
+scissorsButton.addEventListener("mouseup", () => scissorsButton.classList.remove("clicked"));
+scissorsButton.addEventListener("mouseleave", () => scissorsButton.classList.remove("clicked"));
+
 function resetButton() {
   textArea.value = "";
   currentRound = 0;
@@ -68,34 +82,52 @@ function whoWon(player) {
     result = "Player Won.";
   }
 
-  textArea.value += `Bot: ${bot}\nPlayer: ${player}\n${result}\n----------\n`;
+  textArea.value += `${currentRound} | Bot: ${bot} | Player: ${player} | ${result}\n-------------------------------------------------\n`;
   textArea.scrollTop = textArea.scrollHeight;
 
   if (playerWonRounds == roundsToWin) {
     winnerOverlay.style.transform = "translateY(0%)";
+    winnerImage.src = "img/player.png";
+
+    nav.style.backgroundColor = "#FEFEFE";
+
     winnerText.innerHTML = "You Won 5 Rounds!!!<br>Good Job.";
     winnerButton.addEventListener("click", () => {
       resetButton();
       winnerOverlay.style.transform = "translateY(-100%)";
+      setTimeout(() => {
+        nav.style.backgroundColor = "#F5F9F7";
+      }, 400);
     });
   } else if (botWonRounds === roundsToWin) {
     winnerOverlay.style.transform = "translateY(0%)";
+    winnerImage.src = "img/robot.png";
+
+    nav.style.backgroundColor = "#FEFEFE";
+
     winnerText.innerHTML = "Bot Won 5 Rounds!!!<br>Get DUNKED ON";
     winnerButton.addEventListener("click", () => {
       resetButton();
       winnerOverlay.style.transform = "translateY(-100%)";
+      setTimeout(() => {
+        nav.style.backgroundColor = "#F5F9F7";
+      }, 400);
     });
   }
 }
-
+// nav: #F5F9F7 || overlay: #FEFEFE
 function showOverlay() {
-  overlay.style.display = "flex";
+  overlay.style.transform = "translateY(0%)";
+  nav.style.backgroundColor = "#FEFEFE";
 }
+
 playButton.addEventListener("click", function () {
   overlay.style.transform = "translateY(-100%)";
-  //overlay.style.display = "none";
+  setTimeout(() => {
+    nav.style.backgroundColor = "#F5F9F7";
+  }, 400);
 });
-window.addEventListener("load", showOverlay);
+document.addEventListener("DOMContentLoaded", showOverlay);
 
 // Dark Theme
 const darkButton = document.getElementById("dark-theme-button");
