@@ -1,4 +1,4 @@
-@@ Rock, Paper, Scissors Game User Guide
+## Rock, Paper, Scissors Game User Guide
 
 Welcome to the Rock, Paper, Scissors game! This simple and fun game allows you to compete against a bot to see who can win the most rounds. Below is a guide on how to use the game.
 Game Overview
