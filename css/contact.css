@@ -2,24 +2,33 @@
     font-family: Arial, Helvetica, sans-serif
 }
 
+body {
+    background-color: #f5f9f7;
+}
+
 header {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 }
 
 nav ul {
     font-size: 40px;
     display: flex;
     gap: 120px;
-    margin-top: 10px;
-    padding: 20px
+    padding: 30px 20px;
+}
+
+nav {
+    background-color: #F5F9F7;
+    z-index: 2;
 }
 
 nav ul li {
     transition: 0.2s ease;
-
+    z-index: 2;
 }
 
 nav ul li:hover {
@@ -31,6 +40,7 @@ nav ul li a {
     text-decoration: none;
     color: #464578;
     padding: 5px 10px;
+    z-index: 2;
 }
 
 nav ul li a:hover {
@@ -41,6 +51,18 @@ nav ul li a:hover {
     cursor: pointer;
 }
 
+.wrapper {
+    font-size: 30px;
+    line-height: 40px;
+    width: 1000px;
+    margin: 30px auto;
+    margin-bottom: 200px;
+}
+
+.wrapper ul li a {
+    color: rgb(90, 115, 182);
+    text-decoration: none;
+}
 footer {
     font-size: 36px;
     display: flex;
@@ -52,4 +74,9 @@ footer {
     height: 2.5rem;
     background-color: #ebdbe3;
     padding: 20px 0;
+}
+
+footer img {
+    width: auto;
+    height: 70px;
 }

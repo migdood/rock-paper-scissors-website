@@ -285,6 +285,10 @@ footer {
   padding: 20px 0;
 }
 
+footer img{
+  width: auto;
+  height: 70px;
+}
 /* Dark Theme Styles */
 .dark-theme {
   background-color: #464578;
