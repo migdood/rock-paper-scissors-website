@@ -1,69 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
+    <title>Rock, Paper, Scissors</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/reset.css" />
-  <link rel="stylesheet" href="css/style.css" />
-  <script src="script/script.js" defer></script>
-  <title>Rock, Paper, Scissors</title>
-</head>
-
-<body>
-  <header>
-    <nav id="nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="guide.html">Guide</a></li>
-        <li><a href="contact.html">Contact</a></li>
+  <body>
+    <header>
+      <nav id="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="guide.html">Guide</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <ul class="title">
+        <li>Rock Paper Scissors Game!</li>
       </ul>
-    </nav>
-    <ul class="title">
-      <li>Rock Paper Scissors Game!</li>
-      <!--<li><button id="dark-theme-button">Dark</button></li>-->
-    </ul>
-    <div class="round-Counter ">Round: <span id="roundCounter"></span></div>
-  </header>
+      <div class="round-Counter">Round: <span id="roundCounter"></span></div>
+    </header>
 
-  <div id="overlay">
-    <div id="overlay-content">
-      <h1>Play Rock, Paper, Scissors</h1>
-      <button id="play-button">Play</button>
-    </div>
-  </div>
-
-  <div id="overlay-winner">
-    <div id="winner-content">
-      <img src="" alt="" id="winner-image">
-      <h1 id="winner-text"></h1>
-      <button id="play-again">Play Again?</button>
-    </div>
-  </div>
-
-  <main>
-    <div class="wrapper">
-      <div class="buttons ">
-        <button id="rock">🪨</button>
-        <button id="paper">📜</button>
-        <button id="scissors">✂️</button>
-      </div>
-
-      <div class="textbox-container">
-
-        <div class="textarea-wrapper">
-          <textarea id="text-area" cols="50" rows="10" readonly></textarea>
-        </div>
-
-        <div class="win-Counters">
-          <p>🫵 Wins: <span id="player-Wins"></span></p>
-          <p>🤖 Wins: <span id="bot-Wins"></span></p>
-        </div>
-
+    <div id="overlay">
+      <div id="overlay-content">
+        <h1>Play Rock, Paper, Scissors</h1>
+        <button id="play-button">Play</button>
       </div>
     </div>
-  </main>
-  <footer>Copyright © <img src="img/github icon.png" alt="GitHub Icon">Almigdad 2023</footer>
-</body>
 
+    <div id="overlay-winner">
+      <div id="winner-content">
+        <img src="" alt="" id="winner-image" />
+        <h1 id="winner-text"></h1>
+        <button id="play-again">Play Again?</button>
+      </div>
+    </div>
+
+    <main>
+      <div class="wrapper">
+        <div class="buttons">
+          <button id="rock">🪨</button>
+          <button id="paper">📜</button>
+          <button id="scissors">✂️</button>
+        </div>
+
+        <div class="textbox-container">
+          <div class="textarea-wrapper">
+            <textarea id="text-area" cols="50" rows="10" readonly></textarea>
+          </div>
+
+          <div class="win-Counters">
+            <p>🫵 Wins: <span id="player-Wins"></span></p>
+            <p>🤖 Wins: <span id="bot-Wins"></span></p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      Copyright ©
+      <script>
+        document.write(new Date().getFullYear());
+      </script>
+      migdood
+      <a href="https://github.com/migdood" target="_blank">
+        <img src="img/github icon.png" alt="Github Icon" id="footerPicture" />
+      </a>
+    </footer>
+  </body>
 </html>

@@ -22,19 +22,37 @@ const playerWins = document.getElementById("player-Wins");
 const botWins = document.getElementById("bot-Wins");
 
 rockButton.addEventListener("click", () => whoWon("🪨"));
-rockButton.addEventListener("mousedown", () => rockButton.classList.add("clicked"));
-rockButton.addEventListener("mouseup", () => rockButton.classList.remove("clicked"));
-rockButton.addEventListener("mouseleave", () => rockButton.classList.remove("clicked"));
+rockButton.addEventListener("mousedown", () =>
+  rockButton.classList.add("clicked")
+);
+rockButton.addEventListener("mouseup", () =>
+  rockButton.classList.remove("clicked")
+);
+rockButton.addEventListener("mouseleave", () =>
+  rockButton.classList.remove("clicked")
+);
 
 paperButton.addEventListener("click", () => whoWon("📜"));
-paperButton.addEventListener("mousedown", () => paperButton.classList.add("clicked"));
-paperButton.addEventListener("mouseup", () => paperButton.classList.remove("clicked"));
-paperButton.addEventListener("mouseleave", () => paperButton.classList.remove("clicked"));
+paperButton.addEventListener("mousedown", () =>
+  paperButton.classList.add("clicked")
+);
+paperButton.addEventListener("mouseup", () =>
+  paperButton.classList.remove("clicked")
+);
+paperButton.addEventListener("mouseleave", () =>
+  paperButton.classList.remove("clicked")
+);
 
 scissorsButton.addEventListener("click", () => whoWon("✂️"));
-scissorsButton.addEventListener("mousedown", () => scissorsButton.classList.add("clicked"));
-scissorsButton.addEventListener("mouseup", () => scissorsButton.classList.remove("clicked"));
-scissorsButton.addEventListener("mouseleave", () => scissorsButton.classList.remove("clicked"));
+scissorsButton.addEventListener("mousedown", () =>
+  scissorsButton.classList.add("clicked")
+);
+scissorsButton.addEventListener("mouseup", () =>
+  scissorsButton.classList.remove("clicked")
+);
+scissorsButton.addEventListener("mouseleave", () =>
+  scissorsButton.classList.remove("clicked")
+);
 
 function resetButton() {
   textArea.value = "";
@@ -129,14 +147,9 @@ playButton.addEventListener("click", function () {
 });
 document.addEventListener("DOMContentLoaded", showOverlay);
 
-// Dark Theme
-const darkButton = document.getElementById("dark-theme-button");
-const darkWrapper = document.querySelectorAll(".wrapper");
+// Footer stuff
+const footerPicture = document.getElementById("footerPicture");
 
-// Dark button
-darkButton.addEventListener("click", () => {
-  document.body.classList.toggle("dark-theme");
-  darkWrapper.forEach((element) => {
-    element.classList.toggle("dark-theme");
-  });
+footerPicture.addEventListener("mouseenter", () => {
+  footerPicture.animate({ transform: ["rotate(0deg)", "rotate(360deg)"] }, 550);
 });
