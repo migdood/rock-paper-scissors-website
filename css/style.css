@@ -286,28 +286,6 @@ footer {
 }
 
 footer img{
-  width: auto;
+  width: 99%;
   height: 70px;
-}
-/* Dark Theme Styles */
-.dark-theme {
-  background-color: #464578;
-  color: #f5f9f7;
-}
-
-.dark-theme #dark-theme-button {
-  background-color: #f5f9f7;
-  color: black;
-}
-
-.dark-theme #rock {
-  background-color: #f5f9f7;
-}
-
-.dark-theme #paper {
-  background-color: #f5f9f7;
-}
-
-.dark-theme #scissors {
-  background-color: #f5f9f7;
 }
